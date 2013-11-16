@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Aplicaciones Osas</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Le styles -->
+	<link rel="stylesheet" type="text/css" href="../jsLib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../jsLib/bootstrap/css/bootstrap-responsive.min.css">
+		<style>
+			body {
+				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+			}
+		</style>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="./html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="navbar navbar-fixed-top navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#">CyOptics</a>
+
+					<div class="nav-collapse">
+
+						<ul class="nav">
+							<li class="active"><a href="#">Indice</a></li>
+							<li><a href="../docs/index.html" data-bind="if:$root.showDevEntries">Bootstrap</a></li>
+							<li><a href="./" data-bind="if:$root.showDevEntries">Disable Good Mode</a></li>
+							<!-- <li><a href="#contact">Contact</a></li> -->
+						</ul>
+
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<h1>Indice</h1>
+
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<!-- <th>#</th> -->
+						<th class="span3">Nombre</th>
+						<th>Descripcion</th>
+						<th data-bind="if: $root.showDevEntries()" class="span2">Edicion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- ko foreach: index -->
+						<!-- ko if: $root.showDevEntries() == true -->    
+					<tr>
+						<!-- <td><span data-bind="text: $index"></span></td> -->
+						<td><a href="#" data-bind="text:name, attr:{href:dir}"></a></td>
+						<td><p data-bind="text:desc"></p></td>
+						<td>
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a class="btn" href="#"><i class="icon-ok"></i></a>
+									<a class="btn" href="#"><i class="icon-remove"></i></a>
+									<a class="btn" href="#"><i class="icon-pencil"></i></a>
+									<!-- <a class="btn" href="#"><i class="icon-align-justify"></i></a> -->
+								</div>
+							</div>
+						</td>
+					</tr>
+						<!-- /ko -->
+						<!-- ko if: $root.showDevEntries() == false -->
+						<!-- ko if: forDev == false -->    
+					<tr>
+						<!-- <td><span data-bind="text: ($index() + 1)"></span></td> -->
+						<td><a href="#" data-bind="text:name, attr:{href:dir}"></a></td>
+						<td><p data-bind="text:desc"></p></td>
+					</tr>
+						<!-- /ko -->
+						<!-- /ko -->
+				 <!-- /ko -->
+					
+					 <!-- ko if: $root.editForm == true -->
+					<tr>
+						<td colspan="3"><a href="./?dev_InsertNew">Agregar elemento</a></td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
+
+			<div id="response"></div>
+
+		</div> <!-- /container -->
+
+		<!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="../jsLib/jquery/jquery.js"></script>
+		<script src="../jsLib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../jsLib/knockout/knockout.js"></script>
+		<script src="../jsLib/knockout/knockout.mapping-latest.js"></script>
+		<script src="../jsLib/mousetrap/mousetrap.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>

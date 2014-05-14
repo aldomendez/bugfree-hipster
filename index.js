@@ -25,9 +25,19 @@
     "desc": "Muestra informacion de las fallas de SiLens que se han generado en el turno",
     "forDev": true
   },{
+    "dir": "../medicionesALPS",
+    "name": "Mediciones ALPS",
+    "desc": "Formato para hacer las mediciones de lente.",
+    "forDev": false
+  },{
     "dir": "../part_num",
     "name": "* Numeros de parte",
     "desc": "Lista de los numeros de parte de las herramientas de LR4",
+    "forDev": false
+  },{
+    "dir": "../oven-loader",
+    "name": "Horno FTC",
+    "desc": "Lleva un control del material que esta en el FTC, ademas imprime el Formato QMS-F615.02 de manera directa.",
     "forDev": false
   },{
     "dir": "../BuscadorDeOsas",

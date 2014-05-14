@@ -3,6 +3,7 @@ $(document).ready(function(){
 	Mousetrap.bind('[ [ =', function() { window.mvm.showDevEntries(true); }, 'keyup');
 	Mousetrap.bind('q q w', function() { window.mvm.showDevEntries(true); }, 'keyup');
 	Mousetrap.bind('esc', function() { window.mvm.showDevEntries(false); }, 'keyup');
+	Mousetrap.bind('/', function() { window.location.href = './i.php'; }, 'keyup');
 
 	$.ajax({
 		url:"index.js",

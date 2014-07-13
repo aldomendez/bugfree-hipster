@@ -6,16 +6,17 @@ r = new Ractive({
 	data:{
 		pageElement:'finished',
 		flag:'myflag',
-		index:[]
+		index:[],
+		editing:null,
+		state:'prod'
 	}
 });
 // r.observe('index',function (n,o) {
 // 	console.log('captured:',n);
 // });
-// r.on('add', function(){
-// 	r.data.symbols.push(r.data.newEntry);
-// 	r.set('newEntry',{group:r.data.masterGroup,name:'',html:'',entity:''});
-// });
+r.on('edit', function(e){
+	console.log(e);
+});
 
 
 indexPromise = $.getJSON('index.js').promise();
@@ -28,17 +29,26 @@ indexPromise.then(function (index) {
 
 Mousetrap.bind('/', function() { 
 	r.set('pageElement', 'all');
-	console.log('pressed: /');
-}, 'keydown');
+}, 'keyup');
 Mousetrap.bind('.', function() {
 	r.set('pageElement', 'finished');
-	console.log('pressed: .');
-}, 'keydown');
-Mousetrap.bind('-', function() { 
-	r.set('showMenu', true);
-	console.log('pressed: /');
-}, 'keydown');
+}, 'keyup');
+Mousetrap.bind(',', function() {
+	//Esto funciona de la siguiente manera:
+	// Primero seleccionamos el arreglo de opciones que tenemos disponibles
+	// en este caso son estas dos opciones
+	// `sel` va como sigue:
+	// buscamos cual es el indice del valor actual en la variable r.state
+	// -- se supone que el valor tiene que existir
+	// le sumamos uno al valor del indice (por que queremos que me seleccione
+	// el siguiente valor en el arrego), y despues hacemos el modulo contra
+	// la cantidad total de elementos que tiene el arreglo
+	// (esto me asegura que al sumarle uno al indice, en el ultimo numero me
+	// seleccione el primero de nuevo)
+	arr = ['prod','dev'];
+	sel = ((arr.indexOf(r.data.state)+1)%(arr.length));
+	r.set('state', arr[sel]);
+}, 'keyup');
 Mousetrap.bind('=', function() {
 	r.set('showMenu', false);
-	console.log('pressed: .');
-}, 'keydown');
+}, 'keyup');

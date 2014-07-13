@@ -20,6 +20,16 @@
     "desc": "Muestra los carriers que han sido generados para cada operacion de un carrier determinado de TOSA",
     "forDev": false
   },{
+    "dir": "../MaterialEnWIP",
+    "name": "Material En WIP",
+    "desc": "Muestra las piezas que estan el WIP y la operacion y lote en la que se encuentran",
+    "forDev": false
+  },{
+    "dir": "../MaterialOnHand",
+    "name": "Material On Hand",
+    "desc": "Muestra las piezas que se pueden usar para crear demandas, (de Shim o Paquetes)",
+    "forDev": false
+  },{
     "dir": "../fallasSiLens",
     "name": "Fallas de SiLens",
     "desc": "Muestra informacion de las fallas de SiLens que se han generado en el turno",

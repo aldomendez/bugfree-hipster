@@ -8,13 +8,13 @@
 <body>
 <div class="ui one column page grid" id="content"></div>
 
-<div id="template" style="display: none;">
+<script id="template" style="display: none;" type='text/ractive'>
 	<?php include "template.php" ?>
-</div>
+</script>
 
 <script src="../jsLib/mousetrap/mousetrap.min.js"></script>
 <script src="../jquery/jquery.js"></script>
-<script src="ractive.js"></script>
+<script src="../jsLib/ractivejs/ractive.js"></script>
 <script>
 var r, loadRactive;
 
@@ -22,30 +22,27 @@ loadIndex = function (data) {
 	r.set('index',data);
 }
 
+
 r = new Ractive({
 	el:'#content',
 	template:'#template',
 	data:{
-		index:[{
-			name:'aldo',
-			desc:'prod tech'
-		},{
-			name:'Sandra',
-			desc:'key master'
-		}],
-		flag:'algun valor'
+		showAll:false,
+		index:[
+			{name:'Index',desc:'Contenido del index'}
+		]
 	}
 });
-r.observe('index',function (n,o) {
-	console.log('captured:',n);
-});
+// r.observe('index',function (n,o) {
+// 	console.log('captured:',n);
+// });
 // r.on('add', function(){
 // 	r.data.symbols.push(r.data.newEntry);
 // 	r.set('newEntry',{group:r.data.masterGroup,name:'',html:'',entity:''});
 // });
 
 
-// $.getJSON('index.js',loadIndex);
+$.getJSON('index.js',loadIndex);
 
 Mousetrap.bind('/', function() { 
 	r.set('showAll', true);

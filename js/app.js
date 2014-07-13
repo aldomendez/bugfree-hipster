@@ -1,10 +1,5 @@
 var r, loadRactive;
 
-loadIndex = function (data) {
-	r.set('index',data);
-}
-
-
 r = new Ractive({
 	el:'#content',
 	template:'#template',
@@ -23,7 +18,11 @@ r = new Ractive({
 // });
 
 
-$.getJSON('index.js',loadIndex);
+indexPromise = $.getJSON('index.js').promise();
+
+indexPromise.then(function (index) {
+	r.set('index',index);
+});
 
 Mousetrap.bind('/', function() { 
 	r.set('showAll', true);

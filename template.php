@@ -18,12 +18,27 @@
       <th>description</th>
     </tr>
     {{#index:i}}
-      {{#forDev}}
-      <tr>
-        <td><a href="{{dir}}">{{name}}</a></td>
-        <td>{{desc}}</td>
-      </tr>
-      {{/forDev}}
+      {{#showAll}}
+        {{>all}}
+      {{/showAll}}
+      {{^showAll}}
+        {{>justFinished}}
+      {{/showAll}}
     {{/index}}
   </table>
-</div> 
+</div>
+
+<!-- {{>all}} -->
+<tr>
+  <td><a href="{{dir}}">{{name}}</a></td>
+  <td>{{desc}}</td>
+</tr>
+<!-- {{/all}} -->
+<!-- {{>justFinished}} -->
+{{^forDev}}
+  <tr>
+    <td><a href="{{dir}}">{{name}}</a></td>
+    <td>{{desc}}</td>
+  </tr>
+{{/forDev}}
+<!-- {{/justFinished}} -->

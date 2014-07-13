@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Apps de LR4</title>
-	<link rel="stylesheet" href="./packaged/css/semantic.min.css">
+  <meta charset="UTF-8">
+  <title>Apps de LR4</title>
+  <link rel="stylesheet" href="./packaged/css/semantic.min.css">
 </head>
 <body>
 <div class="ui one column page grid" id="content"></div>
 
 <script id="template" style="display: none;" type='text/ractive'>
-	<?php include "template.php" ?>
+  <?php include "template.php" ?>
 </script>
 
 <script src="../jsLib/mousetrap/mousetrap.min.js"></script>

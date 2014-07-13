@@ -4,7 +4,7 @@ r = new Ractive({
 	el:'#content',
 	template:'#template',
 	data:{
-		showAll:false,
+		pageElement:'finished',
 		flag:'myflag',
 		index:[]
 	}
@@ -27,10 +27,18 @@ indexPromise.then(function (index) {
 });
 
 Mousetrap.bind('/', function() { 
-	r.set('showAll', true);
+	r.set('pageElement', 'all');
 	console.log('pressed: /');
-}, 'keyup');
+}, 'keydown');
 Mousetrap.bind('.', function() {
-	r.set('showAll', false);
+	r.set('pageElement', 'finished');
 	console.log('pressed: .');
-}, 'keyup');
+}, 'keydown');
+Mousetrap.bind('-', function() { 
+	r.set('showMenu', true);
+	console.log('pressed: /');
+}, 'keydown');
+Mousetrap.bind('=', function() {
+	r.set('showMenu', false);
+	console.log('pressed: .');
+}, 'keydown');

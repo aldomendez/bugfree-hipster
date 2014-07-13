@@ -18,10 +18,12 @@
       <th>description</th>
     </tr>
     {{#index:i}}
-    <tr>
-      <td><a href="{{dir}}">{{name}}</a></td>
-      <td>{{desc}}</td>
-    </tr>
+      {{#forDev}}
+      <tr>
+        <td><a href="{{dir}}">{{name}}</a></td>
+        <td>{{desc}}</td>
+      </tr>
+      {{/forDev}}
     {{/index}}
   </table>
 </div> 

@@ -1,44 +1,24 @@
-<?php 
-	
-ini_set('display_errors','off');
-ini_set('date.timezone', 'America/Mexico_City');
-error_reporting(E_ALL ^ E_NOTICE);
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apps de LR4</title>
+  <link rel="stylesheet" href="./packaged/css/semantic.min.css">
+</head>
+<body>
+  <!-- El contenido del template se carga aqui -->
+  <div class="ui one column page grid" id="content"></div>
 
-class Index
-{
-	public $dataFile = "index.js";
-
-	function __construct()
-	{
-		if (isset($_POST['index'])) {
-			echo 'post [save_item]';
-		} elseif (isset($_GET['index'])) {
-			$this->get_index();
-		} else {
-			if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-				$uri = 'https://';
-			} else {
-				$uri = 'http://';
-			}
-			$uri .= $_SERVER['HTTP_HOST'];
-			header('Location: '.$uri.'/index/index.html');
-	exit;
-		}
-		
-	}
-
-	public function save_index()
-	{
-		if (isset($_POST['index']) && $_POST['index'] != "") {
-			file_put_contents($this->dataFile, data);
-		}
-	}
-
-	public function get_index(){
-		if (isset($_GET['index'])) {
-			echo file_get_contents($this->dataFile);	
-		}
-	}
-}
-
-$app = new Index();
+  <!-- El template lo carga `php` aqui -->
+  <script id="template" style="display: none;" type='text/ractive'>
+    <?php include "template.php" ?>
+  </script>
+  
+  <!-- mousetrap es el responsable de escuchar las teclas presionadas -->
+  <script src="../jsLib/mousetrap/mousetrap.min.js"></script>
+  <script src="../jquery/jquery.js"></script>
+  <!-- El controlador de elementos visuales -->
+  <script src="../jsLib/ractivejs/ractive.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -21,6 +21,8 @@ r = new Ractive({
 indexPromise = $.getJSON('index.js').promise();
 
 indexPromise.then(function (index) {
+	// jQuery me entrega el contenido del archivo ya listo para
+	// trabajar con el objeto que resivo del servidor
 	r.set('index',index);
 });
 

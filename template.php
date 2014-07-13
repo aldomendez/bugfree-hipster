@@ -3,13 +3,13 @@
   <i class="home icon"></i> avago
   </a>
   <a class="item">
-  <i class="terminal icon"></i> flag: {{flag}}
+  <!-- <i class="terminal icon"></i> flag: {{flag}} -->
   </a>
 </div>
 
 
 <div class="column">
-   <h1 class="center aligned name ui header">Indice de aplicaciones
+   <h1 class="center aligned name ui header">Aplicaciones
     </h1>
 
   <table class="ui padded table segment">
@@ -18,9 +18,11 @@
       <th>description</th>
     </tr>
     {{#index:i}}
+      <!-- Todos los proyectos  -->
       {{#showAll}}
         {{>all}}
       {{/showAll}}
+      <!-- Solo los proyectos que ya estan terminados -->
       {{^showAll}}
         {{>justFinished}}
       {{/showAll}}

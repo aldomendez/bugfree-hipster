@@ -6,16 +6,17 @@ r = new Ractive({
 	data:{
 		pageElement:'finished',
 		flag:'myflag',
-		index:[]
+		index:[],
+		editing:null,
+		showHelper:false
 	}
 });
 // r.observe('index',function (n,o) {
 // 	console.log('captured:',n);
 // });
-// r.on('add', function(){
-// 	r.data.symbols.push(r.data.newEntry);
-// 	r.set('newEntry',{group:r.data.masterGroup,name:'',html:'',entity:''});
-// });
+r.on('edit', function(e){
+	console.log(e);
+});
 
 
 indexPromise = $.getJSON('index.js').promise();
@@ -39,6 +40,6 @@ Mousetrap.bind('-', function() {
 	console.log('pressed: /');
 }, 'keydown');
 Mousetrap.bind('=', function() {
-	r.set('showMenu', false);
+	r.set('showHelper', !(r.data.showHelper));
 	console.log('pressed: .');
 }, 'keydown');

@@ -1,19 +1,26 @@
+class Index
+  constructor: () ->
+    @get()
+  get:->
+    prm = $.getJSON( 'index.js').promise()
+    .done (index)->
+      r.set 'index.data', index
+    
+  
+
+
 r = new Ractive
   el:'#content'
   template:'#template'
   data:
     pageElement:'finished'
-    index:[]
+    index:new Index
     editing:false,
     showHelper:false
 
 r.on 'edit', (e)->
   console.log e
 
-prm = $.getJSON( 'index.js').promise();
-
-prm.done (index)->
-  r.set 'index', index
 
 Mousetrap.bind '/', ->
   r.set 'pageElement', 'all'

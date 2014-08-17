@@ -21,7 +21,7 @@
       <th>App</th>
       <th>Description</th>
     </tr>
-    {{#index:i}}
+    {{#index.data:i}}
       <!-- Todos los proyectos  -->
       {{# pageElement =='finished' }}
         {{>justFinished}}
@@ -30,28 +30,9 @@
       {{# pageElement =='all' }}
         {{>all}}
       {{/ pageElement =='all' }}
-    {{/index}}
+    {{/index.data}}
   </table>
 </div>
-
-<!-- {{>mainTable}} -->
-<table class="ui padded table segment">
-  <tr>
-    <th>arguments</th>
-    <th>description</th>
-  </tr>
-  {{#index:i}}
-    <!-- Todos los proyectos  -->
-    {{# pageElement ==='finished' }}
-      {{>justFinished}}
-    {{/ pageElement ==='finished' }}
-    <!-- Solo los proyectos que ya estan terminados -->
-    {{# pageElement ==='all' }}
-      {{>all}}
-    {{/ pageElement ==='all' }}
-  {{/index}}
-</table>
-<!-- {{/mainTable}} -->
 
 <!-- {{>all}} -->
 <tr id='{{i}}'>
@@ -70,11 +51,3 @@
 {{/forDev}}
 <!-- {{/justFinished}} -->
 
-<!-- {{>editTemplate}} -->
-{{#index:i}}
-  <ul id='{{i}}' on-click='edit'>
-    <li><a href="{{dir}}">## {{name}}</a></li>
-    <li>{{desc}}</li>
-  </ul>
-{{/index}}
-<!-- {{/editTemplate}} -->

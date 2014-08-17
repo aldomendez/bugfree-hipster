@@ -17,8 +17,8 @@
 
   <table class="ui padded table segment">
     <tr>
-      <th>arguments</th>
-      <th>description</th>
+      <th>App</th>
+      <th>Description</th>
     </tr>
     {{#index:i}}
       <!-- Todos los proyectos  -->

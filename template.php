@@ -3,7 +3,7 @@
   <i class="home icon"></i> avago
   </a>
   <a class="item" href="../toolbox/#/query/13127939.json">
-  <i class="terminal icon"></i> Numero de parte Tosa
+  <i class="shuffle icon"></i> Numero de parte Tosa
   </a>
   {{#showHelper}}
   <a class="item" href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://foo.bar/baz.js';})();">MaintHelper</a>
@@ -14,6 +14,7 @@
 <div class="column">
    <h1 class="center aligned name ui header">Aplicaciones
     </h1>
+
 
   <table class="ui padded table segment">
     <tr>
@@ -32,10 +33,25 @@
     {{/index}}
   </table>
 </div>
-<!-- ####################################################
-     Partial Templates
-     ################################################ -->
 
+<!-- {{>mainTable}} -->
+<table class="ui padded table segment">
+  <tr>
+    <th>arguments</th>
+    <th>description</th>
+  </tr>
+  {{#index:i}}
+    <!-- Todos los proyectos  -->
+    {{# pageElement ==='finished' }}
+      {{>justFinished}}
+    {{/ pageElement ==='finished' }}
+    <!-- Solo los proyectos que ya estan terminados -->
+    {{# pageElement ==='all' }}
+      {{>all}}
+    {{/ pageElement ==='all' }}
+  {{/index}}
+</table>
+<!-- {{/mainTable}} -->
 
 <!-- {{>all}} -->
 <tr id='{{i}}'>
@@ -54,11 +70,11 @@
 {{/forDev}}
 <!-- {{/justFinished}} -->
 
-<!-- {{>edit Template}} -->
-{{^forDev}}
-  <tr id='{{i}}' on-click='edit'>
-    <td><a href="{{dir}}">{{name}}</a></td>
-    <td>{{desc}}</td>
-  </tr>
-{{/forDev}}
-<!-- {{/edit Template}} -->
+<!-- {{>editTemplate}} -->
+{{#index:i}}
+  <ul id='{{i}}' on-click='edit'>
+    <li><a href="{{dir}}">## {{name}}</a></li>
+    <li>{{desc}}</li>
+  </ul>
+{{/index}}
+<!-- {{/editTemplate}} -->
